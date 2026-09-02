@@ -1,1 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revelações do Corpo Humano</title>
+  <style>
+    /* Estilos Globais e Fundo */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+      color: #00d2ff;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+
+    header p {
+      color: #cfd8dc;
+      font-size: 1.1rem;
+    }
+
+    /* Grid de Cartões */
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      width: 100%;
+      max-width: 1100px;
+    }
+
+    /* Efeito de Giro 3D do Cartão */
+    .card {
+      background-color: transparent;
+      height: 360px;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    }
+
+    .card.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: 15px;
+      border: 2px solid rgba(0, 210, 255, 0.3);
+      overflow: hidden;
+    }
+
+    /* Frente do Cartão */
+    .card-front {
+      background: linear-gradient(145deg, #1e3c72, #2a5298);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .card-front .icon {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      background: #00d2ff;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1e3c72;
+      font-weight: bold;
+    }
+
+    .card-front h3 {
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* Verso do Cartão (Informação Revelada) */
+    .card-back {
+      background: #141e30;
+      color: white;
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-back img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex-grow: 1;
+    }
+
+    .card-back h3 {
+      color: #00d2ff;
+      margin-bottom: 8px;
+      font-size: 1.1rem;
+    }
+
+    .card-back p {
+      font-size: 0.9rem;
+      line-height: 1.4;
+      color: #e0e0e0;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Revelações do Corpo Humano</h1>
+    <p>Clique nos cartões para revelar fatos impressionantes!</p>
+  </header>
+
+  <main class="cards-container">
+    <div class="card" onclick="flipCard(this)">
+      <div class="card-inner">
+        <div class="card-front">
+          <div class="icon">?</div>
+          <h3>Toque para Revelar</h3>
+        </div>
+        <div class="card-back">
+          <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=500&auto=format&fit=crop" alt="Saúde e Medicina">
+          <div class="card-content">
+            <h3>Ácido Estomacal</h3>
+            <p>O ácido clorídrico do seu estômago é forte o suficiente para dissolver lâminas de barbear! Por isso, a mucosa do estômago se renova a cada poucos dias.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="flipCard(this)">
+      <div class="card-inner">
+        <div class="card-front">
+          <div class="icon">?</div>
+          <h3>Toque para Revelar</h3>
+        </div>
+        <div class="card-back">
+          <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=500&auto=format&fit=crop" alt="Cérebro">
+          <div class="card-content">
+            <h3>Impulsos Elétricos</h3>
+            <p>O cérebro humano gera cerca de 20 watts de eletricidade quando está acordado — energia suficiente para acender uma lâmpada LED fraca.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="flipCard(this)">
+      <div class="card-inner">
+        <div class="card-front">
+          <div class="icon">?</div>
+          <h3>Toque para Revelar</h3>
+        </div>
+        <div class="card-back">
+          <img src="https://images.unsplash.com/photo-1530210124550-912dc1381cb8?w=500&auto=format&fit=crop" alt="Ossos">
+          <div class="card-content">
+            <h3>Mais Ossos ao Nascer</h3>
+            <p>Bebês nascem com cerca de 300 ossos. À medida que crescem, vários deles se fundem, fazendo com que o adulto tenha apenas 206 ossos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="flipCard(this)">
+      <div class="card-inner">
+        <div class="card-front">
+          <div class="icon">?</div>
+          <h3>Toque para Revelar</h3>
+        </div>
+        <div class="card-back">
+          <img src="https://images.unsplash.com/photo-1512290900673-0599a071c312?w=500&auto=format&fit=crop" alt="Pele humana">
+          <div class="card-content">
+            <h3>O Maior Órgão</h3>
+            <p>A pele é o maior órgão do corpo humano. Em um adulto médio, ela cobre cerca de 2 metros quadrados e representa cerca de 15% do peso corporal total.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="flipCard(this)">
+      <div class="card-inner">
+        <div class="card-front">
+          <div class="icon">?</div>
+          <h3>Toque para Revelar</h3>
+        </div>
+        <div class="card-back">
+          <img src="https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?w=500&auto=format&fit=crop" alt="Coração">
+          <div class="card-content">
+            <h3>Ritmo Incessante</h3>
+            <p>O coração humano bate cerca de 100.000 vezes por dia, bombeando aproximadamente 7.500 litros de sangue por todo o sistema circulatório.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="flipCard(this)">
+      <div class="card-inner">
+        <div class="card-front">
+          <div class="icon">?</div>
+          <h3>Toque para Revelar</h3>
+        </div>
+        <div class="card-back">
+          <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=500&auto=format&fit=crop" alt="Olho humano">
+          <div class="card-content">
+            <h3>Visão em Alta Definição</h3>
+            <p>O olho humano consegue distinguir cerca de 10 milhões de cores diferentes, e os músculos que o movem são os mais rápidos do corpo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function flipCard(cardElement) {
+      cardElement.classList.toggle('flipped');
+    }
+  </script>
+</body>
+</html>
